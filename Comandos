@@ -1,0 +1,64 @@
+// Inserir Livros
+
+db.Livros.insertOne({
+    titulo: 'O Médico e o Monstro',
+    autor: 'Robert Louis Stevenson',
+    genero: 'Terror',
+    status: 'Lido'
+})
+
+
+db.Livros.insertMany([{
+    titulo: 'Drácula',
+    autor: 'Bram Stoker',
+    genero: 'Terror',
+    status: 'Lido'
+},
+
+{
+    titulo: 'Frankenstein',
+    autor: 'Mary Shelley',
+    genero: 'Terror',
+    status: 'Lido'
+},
+
+{
+    titulo: 'Fogo e Sangue',
+    autor: 'George R. R. Martin',
+    genero: 'Fantasia',
+    status: 'Lido'
+},
+{
+    titulo: 'O Cavaleiro dos Sete Reinos',
+    autor: 'George R. R. Martin',
+    genero: 'Fantasia',
+    status: 'Quero ler'
+
+},
+{
+    titulo: 'Odisseia',
+    autor: 'Homero',
+    genero: 'Poesia Narrativa',
+    status: 'Quero ler'
+},
+{
+    titulo: 'O Assassinato de Roger Ackroyd',
+    autor: 'Agatha Christie',
+    genero: 'Ficção Policial',
+    status: 'Quero ler'
+}
+])
+
+//Busca de Livros
+db.Livros.find()
+
+//Busca de Gêneros
+db.Livros.find({genero:{$eq:"Terror"}})
+
+//Atualizar
+db.Livros.updateOne(
+    { titulo: "O Assassinato de Roger Ackroyd"},
+    { $set: {status: "Lendo"}})
+
+//Excluir
+db.Livros.deleteOne({ titulo: "Odisseia" })
